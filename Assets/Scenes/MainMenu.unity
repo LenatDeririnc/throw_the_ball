@@ -253,8 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d149ca4381d3024ba92ac122eff59ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenes:
-  - {fileID: 11400000, guid: c98bb68a04bd4ef4583b811d14b7119a, type: 2}
+  nextLevel: {fileID: 11400000, guid: c98bb68a04bd4ef4583b811d14b7119a, type: 2}
 --- !u!4 &124008248
 Transform:
   m_ObjectHideFlags: 0
@@ -2022,8 +2021,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 124008247}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: ChangeFullyToLevel
-        m_Mode: 3
+        m_MethodName: NextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
