@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class DestroyingObject : MonoBehaviour
 {
+    public GameObject obj;
     ObjectInfo info;
 
     private void Awake()
     {
-        info.obj = gameObject;
-        info.colider = GetComponent<Collider>();
-        info.body = GetComponent<Rigidbody>();
+        info = new ObjectInfo();
+        info.obj = obj;
+        info.colider = obj.GetComponentInChildren<Collider>();
+        info.body = obj.GetComponentInChildren<Rigidbody>();
     }
 
     private void AddScoreAndHide()
     {
         GameManager.self.CurrentScore += 1;
-        info.obj.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

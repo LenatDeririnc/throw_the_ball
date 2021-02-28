@@ -267,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverUI: {fileID: 0}
   loader: {fileID: 1557139588}
+  spawner: {fileID: 95695553}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public Canvas GameOverUI;
     public LevelLoader loader;
+    public SphereSpawn spawner;
 
     Coroutine GameOverTimer;
     private int _currentScore = 0;

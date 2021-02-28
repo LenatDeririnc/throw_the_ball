@@ -21,7 +21,7 @@ public class SphereSpawn : MonoBehaviour
     ObjectPool _pool;
 
     Vector2 _relativePos;
-    ObjectInfo ball;
+    public ObjectInfo ball;
 
     private void Awake()
     {
@@ -60,12 +60,10 @@ public class SphereSpawn : MonoBehaviour
         GameManager.self.CurrentBalls -= 1;
         if (GameManager.self.CurrentBalls == 0)
         {
-            var mesh = _spawnPoint.GetComponent<MeshRenderer>();
-            mesh.enabled = false;
+            ball.SetActive(false);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.self.CurrentBalls > 0)
@@ -88,7 +86,6 @@ public class SphereSpawn : MonoBehaviour
             if ((_isPressed && Input.GetMouseButtonUp(0)) || _force >= _maxForce)
             {
                 ball.SetActive(true);
-                DegreaseBalls();
                 _spawnPoint.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, _position.z);
                 ball.transform.position = _spawnPoint.position;
                 ball.transform.rotation = _spawnPoint.rotation;
@@ -102,6 +99,7 @@ public class SphereSpawn : MonoBehaviour
                     StopCoroutine(ball.timer);
                 }
                 ball.timer = StartCoroutine(ball.HideToTime(3));
+
                 ball = _pool.PeekRandom();
                 ball.SetActive(false);
                 ball.obj.SetActive(true);
@@ -111,6 +109,7 @@ public class SphereSpawn : MonoBehaviour
                 {
                     StopCoroutine(ball.timer);
                 }
+                DegreaseBalls();
             }
         }
     }
