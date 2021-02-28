@@ -34,7 +34,6 @@ public class LevelLoader : MonoBehaviour
     private void Awake()
     {
         StaticData.loader = this;
-        mainMenu = StaticData.mainMenu;
         if (StaticData.currentLevelData)
         {
             thisLevel = StaticData.currentLevelData.thisLevel;

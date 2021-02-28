@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager self;
 
     public Canvas GameOverUI;
+    public TMP_Text FoodCounter;
     public LevelLoader loader;
     public SphereSpawn spawner;
+    public AudioSounds aud;
 
     Coroutine GameOverTimer;
     private int _currentScore = 0;
@@ -32,12 +35,19 @@ public class GameManager : MonoBehaviour
         set
         {
             StaticData.CurrentBalls = value;
+            FoodCounter.text = StaticData.CurrentBalls.ToString();
             if (StaticData.CurrentBalls <= 0)
             {
                 StaticData.CurrentBalls = 0;
-                GameOver();
+                GameOverTimer = StartCoroutine(GameOverCoroutine());
             }
         }
+    }
+
+    private IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(3);
+        GameOver();
     }
 
     public void NextLevel()
@@ -51,10 +61,18 @@ public class GameManager : MonoBehaviour
         if (GameOverUI != null) 
             GameOverUI.gameObject.SetActive(true);
         Debug.Log("Game Over");
+        aud.Loose();
     }
 
     private void Awake()
     {
         self = this;
+        if (StaticData.currentLevelData)
+        {
+            aud.audioSource.clip = StaticData.currentLevelData.embient;
+            aud.audioSource.loop = true;
+            aud.audioSource.Play();
+            FoodCounter.text = StaticData.CurrentBalls.ToString();
+        }
     }
 }

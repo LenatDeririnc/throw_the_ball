@@ -11,6 +11,7 @@ public class LevelInfo : MonoBehaviour
     public LevelData nextLevel;
     public LevelData mainMenu;
     public LevelData thisLevel;
+    public AudioClip embient;
 
     private void Awake()
     {

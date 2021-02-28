@@ -891,6 +891,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
+      propertyPath: embient
+      value: 
+      objectReference: {fileID: 8300000, guid: ee7cc521edc57bf4f9ffc0c48a9bf797, type: 3}
+    - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: mainMenu
       value: 
       objectReference: {fileID: 11400000, guid: 31b208e2acea1774bbde0ad960207f9c, type: 2}

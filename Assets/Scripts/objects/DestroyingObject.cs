@@ -17,6 +17,7 @@ public class DestroyingObject : MonoBehaviour
 
     private void AddScoreAndHide()
     {
+        GameManager.self.aud.Eat();
         GameManager.self.CurrentScore += 1;
     }
 
@@ -25,6 +26,7 @@ public class DestroyingObject : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             AddScoreAndHide();
+            other.gameObject.SetActive(false);
         }
     }
 }

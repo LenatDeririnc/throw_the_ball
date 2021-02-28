@@ -71,6 +71,7 @@ public class SphereSpawn : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 _isPressed = true;
+                GameManager.self.aud.Windup();
             }
             if (_isPressed && _force < _maxForce)
             {
@@ -85,6 +86,14 @@ public class SphereSpawn : MonoBehaviour
             }
             if ((_isPressed && Input.GetMouseButtonUp(0)) || _force >= _maxForce)
             {
+                var r = Random.Range(0, 2);
+
+                if (r == 0)
+                    GameManager.self.aud.Release();
+                else
+                    GameManager.self.aud.Release2();
+
+
                 ball.SetActive(true);
                 _spawnPoint.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, _position.z);
                 ball.transform.position = _spawnPoint.position;
