@@ -27,6 +27,8 @@ public class DestroyingObject : MonoBehaviour
         {
             AddScoreAndHide();
             other.gameObject.SetActive(false);
+            obj.SetActive(false);
         }
+
     }
 }
