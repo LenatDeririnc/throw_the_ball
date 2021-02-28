@@ -11,10 +11,10 @@ public class ElephantEasterEgg : MonoBehaviour
 
     private void Start()
     {
-        float rand = Random.Range(0, 2);
+        float rand = Random.value;
         if (rand > posibility)
         {
-            aud.enabled = false;
+            aud.Stop();
             plane.SetActive(false);
             elephant.SetActive(false);
         }

@@ -14,6 +14,16 @@ public class AudioSounds : MonoBehaviour
     public AudioClip[] WindupSound;
     public AudioClip EatSound;
 
+    private int randomController(int oldNumber, int min, int max)
+    {
+        int a = Random.Range(0, 4);
+        if (a == oldNumber)
+        {
+            return randomController(oldNumber, min, max);
+        }
+        return a;
+    }
+
     public void Click1()
     {
         audioSource.PlayOneShot(AcceptClick);
@@ -24,16 +34,20 @@ public class AudioSounds : MonoBehaviour
         audioSource.PlayOneShot(DiacceptClick);
     }
 
+    private int _lastRelease = -1;
     public void Release()
     {
-        int i = Random.Range(0, ReleaseSounds.Length);
+        int i = randomController(_lastRelease, 0, ReleaseSounds.Length);
         audioSource.PlayOneShot(ReleaseSounds[i]);
+        _lastRelease = i;
     }
 
+    private int _lastWindup = -1;
     public void Windup()
     {
-        int i = Random.Range(0, WindupSound.Length);
+        int i = randomController(_lastWindup, 0, WindupSound.Length);
         audioSource.PlayOneShot(WindupSound[i]);
+        _lastWindup = i;
     }
 
     public void Loose()
