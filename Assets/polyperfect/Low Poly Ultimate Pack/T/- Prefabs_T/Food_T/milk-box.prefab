@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4460828084989958}
   - component: {fileID: 33655550279684348}
   - component: {fileID: 23949664116011132}
-  - component: {fileID: 65207552552794896}
+  - component: {fileID: 331977331065697487}
   m_Layer: 0
   m_Name: milk-box
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &65207552552794896
-BoxCollider:
+--- !u!64 &331977331065697487
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,6 +92,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.10088624, y: 0.28949612, z: 0.10226731}
-  m_Center: {x: 0.00012893789, y: 0.14494663, z: 0.00021138974}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a7aa80e4b418b4558b5ab73138e5dd05, type: 3}

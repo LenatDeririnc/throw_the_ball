@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct ObjectInfo
+public class ObjectInfo
 {
     public GameObject obj;
     public Transform transform;
     public Collider colider;
     public Rigidbody body;
+    public Coroutine timer;
+
     public void SetActive(bool state)
     {
         obj.SetActive(state);
@@ -22,13 +24,19 @@ public struct ObjectInfo
             body.isKinematic = !state;
         }
     }
+
+    public IEnumerator HideToTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SetActive(false);
+    }
 }
 
 public class ObjectPool : MonoBehaviour
 {
     public ObjectInfo[] objects;
-    public GameObject prefab;
-    public int length = 10;
+    public GameObject[] prefabs;
+    public int length = 2;
     private int currentObjectInPool = 0;
 
     public override string ToString()
@@ -44,17 +52,15 @@ public class ObjectPool : MonoBehaviour
         return returnStringFormat;
     }
 
-    public void CreateObjectPool(GameObject prefab, int length, Vector3 position)
+    public void CreateObjectPool(GameObject[] prefabs, Vector3 position)
     {
-        this.prefab = prefab;
-        this.length = length;
+        this.prefabs = prefabs;
         _InitPrefabs(null, position);
     }
 
-    public void CreateObjectPool(GameObject prefab, int length, Transform parent, Vector3 position)
+    public void CreateObjectPool(GameObject[] prefabs, Transform parent, Vector3 position)
     {
-        this.prefab = prefab;
-        this.length = length;
+        this.prefabs = prefabs;
         _InitPrefabs(parent, position);
     }
 
@@ -73,28 +79,47 @@ public class ObjectPool : MonoBehaviour
 
     private void _InitPrefabs(Transform parent, Vector3 position)
     {
-        objects = new ObjectInfo[length];
+        objects = new ObjectInfo[prefabs.Length * length];
+
         for (int i = 0; i < objects.Length; i++)
         {
-            objects[i].obj = Instantiate(prefab);
-            objects[i].transform = objects[i].obj.transform;
-
-            if (parent != null)
-                objects[i].transform.parent = parent;
-
-            objects[i].obj.transform.position = position;
-            objects[i].colider = objects[i].obj.GetComponent<Collider>();
-            objects[i].body = objects[i].obj.GetComponent<Rigidbody>();
-
-            objects[i].SetActive(false);
+            objects[i] = new ObjectInfo();
         }
+
+        int j = 0;
+
+        foreach (GameObject prefab in prefabs)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                objects[j].obj = Instantiate(prefab);
+                objects[j].transform = objects[j].obj.transform;
+
+                if (parent != null)
+                    objects[j].transform.parent = parent;
+
+                objects[j].obj.transform.position = position;
+                objects[j].colider = objects[j].obj.GetComponentInChildren<Collider>();
+                objects[j].body = objects[j].obj.GetComponentInChildren<Rigidbody>();
+
+                objects[j].SetActive(false);
+                j++;
+            }
+        }
+    }
+
+    public ObjectInfo PeekRandom()
+    {
+        currentObjectInPool = Random.Range(0, length * prefabs.Length);
+        var obj = objects[currentObjectInPool];
+        return obj;
     }
 
     public ObjectInfo NextInPool()
     {
         var obj = objects[currentObjectInPool];
         currentObjectInPool += 1;
-        if (currentObjectInPool >= length)
+        if (currentObjectInPool >= length * prefabs.Length)
         {
             currentObjectInPool = 0;
         }
