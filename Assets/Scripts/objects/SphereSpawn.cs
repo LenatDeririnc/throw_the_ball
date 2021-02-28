@@ -86,12 +86,7 @@ public class SphereSpawn : MonoBehaviour
             }
             if ((_isPressed && Input.GetMouseButtonUp(0)) || _force >= _maxForce)
             {
-                var r = Random.Range(0, 2);
-
-                if (r == 0)
-                    GameManager.self.aud.Release();
-                else
-                    GameManager.self.aud.Release2();
+                GameManager.self.aud.Release();
 
 
                 ball.SetActive(true);

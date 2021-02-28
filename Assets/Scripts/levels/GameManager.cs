@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         Debug.Log("Next level");
-        StaticData.loader.nextLevel.LoadLevel();
+        StaticData.loader.NextLevel();
     }
 
     public void GameOver()

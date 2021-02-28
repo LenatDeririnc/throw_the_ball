@@ -604,20 +604,20 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: e98b57b474a4bdc4c819a2781fb75115, type: 3}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: mainMenu
-      value: 
-      objectReference: {fileID: 11400000, guid: 31b208e2acea1774bbde0ad960207f9c, type: 2}
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: LevelName
       value: City 2
       objectReference: {fileID: 0}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: nextLevel
-      value: 
-      objectReference: {fileID: 11400000, guid: 1d9e1f26e694abb42948432df26830cb, type: 2}
+      value: Level-5
+      objectReference: {fileID: 0}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: thisLevel
-      value: 
-      objectReference: {fileID: 11400000, guid: 8cb2a3affa82437408538c79a5c9b87b, type: 2}
+      value: Level-4
+      objectReference: {fileID: 0}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: TargetsCount
       value: 5

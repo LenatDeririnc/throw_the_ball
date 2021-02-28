@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public LevelData mainMenu;
-    public LevelData nextLevel;
-    public LevelData thisLevel;
+    //public LevelData mainMenu;
+    //public LevelData nextLevel;
+    //public LevelData thisLevel;
+
+    public string gameLogic = "GameLogic";
+    public string mainMenu = "MainMenu";
+    public string nextLevel = "";
+    public string thisLevel = "";
 
     public void ResetData()
     {
@@ -17,18 +22,23 @@ public class LevelLoader : MonoBehaviour
     public void Restart()
     {
         ResetData();
-        thisLevel.LoadLevel();
+        //thisLevel.LoadLevel();
+        SceneManager.LoadScene(thisLevel);
+        SceneManager.LoadScene(gameLogic, LoadSceneMode.Additive);
     }
 
     public void MainMenu()
     {
         ResetData();
-        mainMenu.LoadLevel();
+        //mainMenu.LoadLevel();
+        SceneManager.LoadScene(mainMenu);
     }
 
     public void NextLevel()
     {
-        nextLevel.LoadLevel();
+        //nextLevel.LoadLevel();
+        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(gameLogic, LoadSceneMode.Additive);
     }
 
     private void Awake()
@@ -38,8 +48,7 @@ public class LevelLoader : MonoBehaviour
         {
             thisLevel = StaticData.currentLevelData.thisLevel;
             mainMenu = StaticData.currentLevelData.mainMenu;
-            if (nextLevel == null)
-                nextLevel = StaticData.currentLevelData.nextLevel;
+            nextLevel = StaticData.currentLevelData.nextLevel;
         }
     }
 }

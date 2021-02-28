@@ -10,9 +10,8 @@ public class AudioSounds : MonoBehaviour
     public AudioClip DiacceptClick;
     public AudioClip WinSound;
     public AudioClip LooseSound;
-    public AudioClip ReleaseSound;
-    public AudioClip Release2Sound;
-    public AudioClip WindupSound;
+    public AudioClip[] ReleaseSounds;
+    public AudioClip[] WindupSound;
     public AudioClip EatSound;
 
     public void Click1()
@@ -27,17 +26,14 @@ public class AudioSounds : MonoBehaviour
 
     public void Release()
     {
-        audioSource.PlayOneShot(ReleaseSound);
-    }
-    
-    public void Release2()
-    {
-        audioSource.PlayOneShot(Release2Sound);
+        int i = Random.Range(0, ReleaseSounds.Length);
+        audioSource.PlayOneShot(ReleaseSounds[i]);
     }
 
     public void Windup()
     {
-        audioSource.PlayOneShot(WindupSound);
+        int i = Random.Range(0, WindupSound.Length);
+        audioSource.PlayOneShot(WindupSound[i]);
     }
 
     public void Loose()

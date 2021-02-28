@@ -148,3 +148,4 @@ MonoBehaviour:
   ReleaseSound: {fileID: 8300000, guid: 23f59d2631abaec4087b35e0b91c6f1f, type: 3}
   Release2Sound: {fileID: 8300000, guid: b374825fdd9aa644d8573da23f04f862, type: 3}
   WindupSound: {fileID: 8300000, guid: 2e478a67ef3da4b41a5e07c3a0526240, type: 3}
+  EatSound: {fileID: 8300000, guid: c0b6f9edcba0aef4895ff14f2f56c2b7, type: 3}
