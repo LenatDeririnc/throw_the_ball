@@ -1444,6 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9421026120692294eb7dde86d193ff49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obj: {fileID: 0}
 --- !u!54 &839614613
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1917,6 +1918,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
+      propertyPath: mainMenu
+      value: 
+      objectReference: {fileID: 11400000, guid: 31b208e2acea1774bbde0ad960207f9c, type: 2}
+    - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: LevelName
       value: Japan
       objectReference: {fileID: 0}
@@ -1924,6 +1929,10 @@ PrefabInstance:
       propertyPath: nextLevel
       value: 
       objectReference: {fileID: 11400000, guid: 8cb2a3affa82437408538c79a5c9b87b, type: 2}
+    - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
+      propertyPath: thisLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: 75c02423a8c61f542a3bc40a547edbe7, type: 2}
     - target: {fileID: 2456347309677354361, guid: ca982dd0751306e41aa2262b4cb76f11, type: 3}
       propertyPath: TargetsCount
       value: 2
@@ -2686,6 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9421026120692294eb7dde86d193ff49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obj: {fileID: 0}
 --- !u!54 &2010207202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2781,6 +2791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9421026120692294eb7dde86d193ff49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obj: {fileID: 0}
 --- !u!4 &2074553993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4568964789214854, guid: b37b2a458e09bb846b55fa157c13bd8b, type: 3}

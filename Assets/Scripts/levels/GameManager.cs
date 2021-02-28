@@ -48,13 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        GameOverTimer = StartCoroutine(GameOverEnumerator());
-    }
-
-    private IEnumerator GameOverEnumerator()
-    {
-        yield return new WaitForSeconds(3);
-        if (GameOverUI) GameOverUI.enabled = true;
+        if (GameOverUI != null) 
+            GameOverUI.gameObject.SetActive(true);
         Debug.Log("Game Over");
     }
 

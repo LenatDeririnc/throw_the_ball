@@ -5,11 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    public LevelData mainMenu;
     public LevelData nextLevel;
+    public LevelData thisLevel;
 
     public void ResetData()
     {
         StaticData.ResetData();
+    }
+
+    public void Restart()
+    {
+        ResetData();
+        thisLevel.LoadLevel();
+    }
+
+    public void MainMenu()
+    {
+        ResetData();
+        mainMenu.LoadLevel();
     }
 
     public void NextLevel()
@@ -20,7 +34,13 @@ public class LevelLoader : MonoBehaviour
     private void Awake()
     {
         StaticData.loader = this;
-        if (StaticData.currentLevelData && nextLevel == null)
-            nextLevel = StaticData.currentLevelData.nextLevel;
+        mainMenu = StaticData.mainMenu;
+        if (StaticData.currentLevelData)
+        {
+            thisLevel = StaticData.currentLevelData.thisLevel;
+            mainMenu = StaticData.currentLevelData.mainMenu;
+            if (nextLevel == null)
+                nextLevel = StaticData.currentLevelData.nextLevel;
+        }
     }
 }

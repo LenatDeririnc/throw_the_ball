@@ -9,6 +9,8 @@ public class LevelInfo : MonoBehaviour
     public int AddingProjectiles;
     public int TargetsCount;
     public LevelData nextLevel;
+    public LevelData mainMenu;
+    public LevelData thisLevel;
 
     private void Awake()
     {

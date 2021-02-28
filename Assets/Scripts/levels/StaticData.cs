@@ -7,16 +7,12 @@ public static class StaticData
     public static int CurrentBalls = 0;
     public static LevelLoader loader;
     public static LevelInfo currentLevelData;
+    public static LevelData mainMenu;
 
     public static void ResetData()
     {
         CurrentBalls = 0;
         loader = null;
         currentLevelData = null;
-    }
-
-    public static void ping()
-    {
-        Debug.Log("ping");
     }
 }
