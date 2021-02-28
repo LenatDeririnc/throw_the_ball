@@ -10,13 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce09aeb370ebcc4b8c82bf78257b1b1, type: 3}
-  m_Name: Level 2
+  m_Name: Level 4 (City 2)
   m_EditorClassIdentifier: 
   LoadingScenes:
-  - {fileID: 102900000, guid: 24b04fe791738d14182dd95f7fc11da1, type: 3}
+  - {fileID: 102900000, guid: 5acc61e707bb01b48a2c09dcbedca371, type: 3}
   - {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-  LevelName: 
-  LevelDificulty: 0
-  AddingProjectiles: 0
-  TargetsCount: 0
-  nextLevel: {fileID: 11400000, guid: 75c02423a8c61f542a3bc40a547edbe7, type: 2}

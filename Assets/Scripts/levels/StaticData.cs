@@ -6,7 +6,7 @@ public static class StaticData
 {
     public static int CurrentBalls = 0;
     public static LevelLoader loader;
-    public static LevelData currentLevelData;
+    public static LevelInfo currentLevelData;
 
     public static void ResetData()
     {

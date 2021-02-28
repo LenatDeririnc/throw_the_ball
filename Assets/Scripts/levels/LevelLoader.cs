@@ -15,7 +15,6 @@ public class LevelLoader : MonoBehaviour
     public void NextLevel()
     {
         nextLevel.LoadLevel();
-        nextLevel = nextLevel.nextLevel;
     }
 
     private void Awake()

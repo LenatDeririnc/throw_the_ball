@@ -13,16 +13,9 @@ using UnityEditor.SceneManagement;
 public class LevelData : ScriptableObject
 {
     public Object[] LoadingScenes;
-    public string LevelName;
-    public int LevelDificulty;
-    public int AddingProjectiles;
-    public int TargetsCount;
-    public LevelData nextLevel;
 
     public void LoadLevel()
     {
-        StaticData.currentLevelData = this;
-        StaticData.CurrentBalls += StaticData.currentLevelData.AddingProjectiles;
         for (int i = 0; i < LoadingScenes.Length; i++)
         {
             LoadSceneMode loadMode = LoadSceneMode.Additive;
