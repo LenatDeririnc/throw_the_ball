@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class StaticData
 {
+    public static bool isFirstStart = true;
     public static int CurrentBalls = 0;
     public static LevelLoader loader;
     public static LevelInfo currentLevelData;

@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        Debug.Log("Next level");
         StaticData.loader.NextLevel();
     }
 
@@ -60,7 +59,6 @@ public class GameManager : MonoBehaviour
     {
         if (GameOverUI != null) 
             GameOverUI.gameObject.SetActive(true);
-        Debug.Log("Game Over");
         aud.Loose();
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class LevelLoader : MonoBehaviour
     {
         ResetData();
         //thisLevel.LoadLevel();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, thisLevel, "Level_Restart");
         SceneManager.LoadScene(thisLevel);
         SceneManager.LoadScene(gameLogic, LoadSceneMode.Additive);
     }
@@ -32,6 +34,7 @@ public class LevelLoader : MonoBehaviour
         ResetData();
         //mainMenu.LoadLevel();
         SceneManager.LoadScene(mainMenu);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, mainMenu, "Quit_Main_Menu");
     }
 
     public void NextLevel()
@@ -49,6 +52,15 @@ public class LevelLoader : MonoBehaviour
             thisLevel = StaticData.currentLevelData.thisLevel;
             mainMenu = StaticData.currentLevelData.mainMenu;
             nextLevel = StaticData.currentLevelData.nextLevel;
+        }
+        if (StaticData.isFirstStart)
+        {
+            StaticData.isFirstStart = false;
+            GameAnalytics.Initialize();
+        }
+        else
+        {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, thisLevel, "Level_Progress", StaticData.CurrentBalls);
         }
     }
 }
